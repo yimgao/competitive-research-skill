@@ -1,41 +1,105 @@
 ---
 name: competitive-research
-description: "Use when researching competitors, comparing products, or producing structured market analysis reports via web search and browsing."
-version: 1.0.0
+description: "Use when researching competitors, analyzing 小红书/Xiaohongshu content, comparing products, or producing structured market/social-media reports in Chinese or English."
+version: 1.1.0
 author: yimgao
 license: MIT
 metadata:
   hermes:
-    tags: [research, competitive-analysis, market-intelligence, comparison, web-research]
+    tags: [research, competitive-analysis, market-intelligence, xiaohongshu, social-media, chinese, bilingual, content-analysis, web-research]
     related_skills: [writing-plans, spike]
 ---
 
-# Competitive Research Assistant
+# Competitive Research Assistant / 竞品调研助手
 
-> **Automate competitor research, feature comparison, and market analysis using web search and browser tools.**
+> **Research competitors, analyze 小红书 trends, compare products — in Chinese or English.**
+> **竞品调研、小红书趋势分析、产品对比 — 支持中英文。**
 
-## Overview
+---
 
-This skill helps you research competitors, compare products, and produce structured analysis reports — all within Hermes Agent. Instead of manually visiting competitor sites and copy-pasting into a doc, you describe what you want to research and Hermes does the legwork: searches the web, browses competitor pages, extracts key features/pricing/reviews, and compiles everything into a clean Markdown report.
+## Overview / 概述
 
-**What it can do for you:**
-- Research a single competitor in depth (features, pricing, target audience, funding)
-- Compare 2-5 competitors side-by-side
-- Analyze market positioning and write SWOT analysis
-- Monitor competitor news and updates (via cron jobs)
-- Track pricing changes over time
+This skill helps you research competitors, analyze 小红书 (Xiaohongshu / RED) content, and produce structured reports — all within Hermes Agent. Whether you need a Western market deep-dive or Chinese social-media trend analysis, the research methodology is the same: search, browse, extract, compile.
 
-## When to Use
+本技能帮助你做竞品调研、小红书内容分析、产品对比，输出结构化报告。无论是西方市场调研还是中文社交媒体趋势分析，方法论是一致的：搜索 → 浏览 → 提取 → 编译。
 
-- **Before making a tech stack decision** — compare tools/frameworks/SaaS products
-- **When entering a new market** — understand the competitive landscape
-- **Before building a new feature** — see what competitors already offer
-- **For weekly/monthly competitive monitoring** — pair with cron jobs for recurring reports
-- **For pitch decks / investor materials** — get structured competitor landscape
+**What it can do / 它能做什么：**
 
-## Core Workflow
+| English | 中文 |
+|---------|------|
+| Research a single competitor in depth | 深度调研单个竞品 |
+| Compare 2-5 competitors side-by-side | 对比 2-5 个竞品 |
+| Analyze market positioning & SWOT | 市场定位 + SWOT 分析 |
+| **Research 小红书 trends & content** | **调研小红书趋势与内容** |
+| Analyze competitors' 小红书 strategies | 分析竞品的小红书策略 |
+| Find popular 小红书 topics & formats | 发现小红书热门话题 & 笔记形式 |
+| Monitor competitors / trends via cron | 通过 cron 定时监控 |
+| Track pricing changes over time | 追踪价格变化 |
 
-### 1️⃣ Single Competitor Deep Dive
+---
+
+## When to Use / 什么时候使用
+
+| English | 中文 |
+|---------|------|
+| Before entering a new market | 进入新市场前 |
+| Before building a new feature | 开发新功能前 |
+| When researching 小红书 content strategy | 调研小红书内容策略时 |
+| For weekly competitor monitoring | 每周竞品监控 |
+| For pitch decks / investor materials | 做路演/投资材料时 |
+| When you need bilingual analysis | 需要双语分析时 |
+
+---
+
+## 核心工作流 / Core Workflow
+
+### 🇨🇳 小红书内容研究 (Chinese Social Media Research)
+
+```
+用户：帮我分析小红书上『AI 笔记工具』这个赛道的热门内容
+Hermes 应该：
+  1. 搜索：小红书 AI笔记工具 热门笔记 2026
+           小红书 AI笔记 app 推荐
+           小红书 笔记工具 评测 对比
+  2. 搜索：知乎 AI笔记工具 评测
+           百度 AI笔记工具 哪个好用
+  3. 分析热门笔记的特点：
+     - 标题风格（emoji使用、关键词）
+     - 封面图风格
+     - 点赞/收藏/评论量
+     - 笔记结构（图文、视频、合集）
+  4. 识别关键竞争者在小红书的布局
+  5. 输出中文报告
+```
+
+```
+用户：Research popular 小红书 content formats for skincare products
+Hermes should:
+  1. Search: 小红书 护肤 爆款笔记 格式
+             小红书 美妆 热门内容 分析
+  2. Search: 小红书 护肤品类 种草笔记
+  3. Analyze content patterns: titles, covers, hashtags, formats
+  4. Identify top KOL/KOC accounts in skincare
+  5. Output bilingual or English report
+```
+
+### 🇨🇳 竞品小红书策略分析
+
+```
+用户：分析 Notion 和 FlowUs 在小红书上的内容策略差异
+Hermes 应该：
+  1. 搜索：小红书 Notion 笔记 教程
+           小红书 FlowUs 笔记 使用
+  2. 分析每个品牌的内容：
+     - 发布的笔记数量和频率
+     - 内容类型（教程、评测、对比）
+     - 互动情况
+     - 受众反馈
+  3. 对比总结两个品牌的小红书策略差异
+  4. 输出中文报告
+```
+
+### 🇺🇸 🇬🇧 Single Competitor Deep Dive (English)
 
 ```
 User: Research Confluence as a documentation tool
@@ -47,171 +111,336 @@ Hermes should:
   5. Compile report covering: Features, Pricing, Target Users, Pros/Cons, Alternatives
 ```
 
-### 2️⃣ Competitive Comparison
+### 🌐 Competitive Comparison
 
 ```
-User: Compare Notion, Confluence, and Coda for team documentation
+User: Compare Notion, Obsidian, and Craft for personal knowledge management
 Hermes should:
   1. Research each product individually (features, pricing, reviews)
-  2. Create a comparison table with columns: Feature | Notion | Confluence | Coda
+  2. Create a comparison table
   3. Add pros/cons for each
-  4. Summarize which is best for: small teams, enterprise, developers, non-technical users
-  5. Save report to ~/research/ or Documents/
+  4. Summarize best fits
+  5. Save report
 ```
 
-### 3️⃣ Market Landscape + SWOT
+### 📊 Market Landscape + SWOT
 
 ```
-User: Analyze the AI coding assistant market — GitHub Copilot, Cursor, Codex, Claude Code
+User: Analyze the AI coding assistant market — GitHub Copilot, Cursor, Codex
 Hermes should:
   1. Research each competitor
-  2. Market positioning analysis (price segment, target audience)
-  3. SWOT for each competitor
+  2. Market positioning analysis
+  3. SWOT for each
   4. Overall market trends summary
-  5. Save as a structured report
+  5. Save report
 ```
 
-## Research Methodology
+---
 
-### Step 1: Define Scope
+## Research Methodology / 研究方法
 
-Before searching, clarify:
-- **What exactly** are you researching? (product, company, category)
-- **Dimensions** to cover? (features, pricing, reviews, market share, funding)
-- **Number of competitors?** (1 deep dive, 3-5 comparison, or broad landscape)
-- **Output format?** (brief summary, detailed report, comparison table)
+### Step 1: Define Scope / 明确范围
 
-### Step 2: Multi-Source Strategy
+Before searching, clarify / 搜索前先明确：
 
-Always gather data from **at least 3 sources** per competitor:
+- **What / 调研什么？** (product, company, category, 小红书话题)
+- **Dimensions / 分析维度？** (features, pricing, reviews, 热门内容, 互动数据)
+- **Language / 语言？** (English, 中文, or bilingual / 双语)
+- **Scope / 范围？** (1 deep dive, 3-5 comparison, landscape)
+- **Output / 输出格式？** (brief summary, detailed report, comparison table)
+
+### Step 2: Multi-Source Strategy / 多源策略
+
+**For English/Global research:**
 
 | Source Type | Examples | What to extract |
 |-------------|----------|-----------------|
-| Official website | product.site, docs.product.site | Features claimed, pricing, use cases |
-| Review platforms | G2, Capterra, ProductHunt | User ratings, pros/cons, reviews |
+| Official website | product.site, docs.product.site | Features, pricing, use cases |
+| Review platforms | G2, Capterra, ProductHunt | Ratings, pros/cons, reviews |
 | Tech media | TechCrunch, The Verge, blogs | News, funding, market position |
-| Community | Reddit, Hacker News, Discord | Real user sentiment, complaints |
-| Comparison articles | "X vs Y vs Z" blog posts | Side-by-side feature lists |
+| Community | Reddit, Hacker News, Discord | Real user sentiment |
+| Comparisons | "X vs Y" blog posts | Side-by-side feature lists |
 
-### Step 3: Data Extraction
+**For 中文/中国 research:**
 
-For each source, extract these facts:
-- **Features:** What does it do? What's unique?
-- **Pricing:** Free tier? Tiered? Enterprise? Per-seat?
-- **Target audience:** Individual? Team? Enterprise? Developer?
-- **Integrations:** What does it integrate with?
-- **Strengths:** What users praise most
-- **Weaknesses:** Common complaints
-- **Market position:** Leader? Challenger? Niche?
+| 来源类型 | 示例 | 提取内容 |
+|---------|------|---------|
+| 小红书 | 小红书搜索 | 热门笔记、话题趋势、用户互动 |
+| 知乎 | zhihu.com 搜索 | 深度评测、用户讨论 |
+| 百度 | 百度搜索 | 产品信息、用户评价 |
+| 抖音/微信 | 相关内容 | 短视频内容趋势 |
+| 科技媒体 | 36氪、虎嗅、爱范儿 | 行业新闻、融资信息 |
+| 电商平台 | 淘宝、京东 | 产品销量、用户评价 |
 
-### Step 4: Report Compilation
+### 🌟 小红书特有分析方法
 
-Structure the output as a clean Markdown report:
+#### 内容维度分析
+
+```
+分析一篇小红书笔记时，提取以下信息：
+
+📌 基础信息
+- 标题：关键词、emoji使用、句式
+- 封面：风格（纯文字/产品图/对比图）
+- 标签：#话题标签
+- 形式：图文 / 视频 / 合集
+
+📊 互动数据
+- 点赞数
+- 收藏数
+- 评论数
+- 分享数
+- 评论内容（用户关注点、常见问题）
+
+🎯 内容策略分析
+- 笔记类型：种草 / 教程 / 对比 / 合集 / vlog
+- 目标受众判断
+- 卖点提取
+- 转化路径（评论区引导、主页链接等）
+```
+
+#### 竞品在小红书的布局分析
+
+```
+分析一个品牌在小红书的存在：
+
+1. 官方账号运营：
+   - 粉丝数、笔记数
+   - 内容风格和频率
+   - 互动率
+
+2. KOL/KOC 合作：
+   - 合作的博主类型和量级
+   - 合作内容形式
+   - 用户反馈
+
+3. 话题和标签策略：
+   - 品牌相关话题热度
+   - 使用的话题标签
+   - 内容分发策略
+```
+
+### Step 3: Data Extraction / 数据提取
+
+For each source, extract / 对每个来源，提取：
+
+| English | 中文 |
+|---------|------|
+| Features / 产品功能 | 功能列表、独特卖点 |
+| Pricing / 价格 | 免费版、付费版、企业版 |
+| Target audience / 目标用户 | 个人 / 团队 / 企业 |
+| Strengths / 优势 | 用户最称赞的 |
+| Weaknesses / 不足 | 常见投诉 |
+| Market position / 市场定位 | 领导者 / 挑战者 / 细分 |
+| **小红书热度 / 小红书 popularity** | 笔记量、互动量、话题热度 |
+
+### Step 4: Report Compilation / 报告编译
+
+Structure the output following the language of the user's query / 根据用户查询语言选择报告语言：
+
+**English report template:**
 
 ```markdown
 # Competitive Research Report: [Category]
 
 **Date:** YYYY-MM-DD
-**Scope:** [Brief description of what was analyzed]
+**Scope:** [description]
 
 ---
 
 ## Executive Summary
-[2-3 paragraph overview of findings]
+[2-3 paragraph overview]
 
 ## Competitor Overview
 
-| Competitor | Key Differentiator | Price Range | Target User |
-|------------|--------------------|-------------|-------------|
-| Product A | ... | $X-$Y/mo | ... |
-| Product B | ... | $X-$Y/mo | ... |
+| Competitor | Key Differentiator | Price | Target |
+|------------|--------------------|-------|--------|
+| Product A | ... | $X/mo | ... |
 
 ## Detailed Analysis
 
 ### Product A
-**Features:**
-- Feature 1
-- Feature 2
-- ...
-
-**Pricing:** $X/mo for Y users
+**Features:** ...
+**Pricing:** ...
 **Strengths:** ...
 **Weaknesses:** ...
 
-### Product B
-...
-
 ## Comparison Table
 
-| Feature | Product A | Product B | Product C |
-|---------|-----------|-----------|-----------|
-| Feature 1 | ✅ | ✅ | ❌ |
-| Feature 2 | ✅ | ❌ | ✅ |
-| Feature 3 | ❌ | ✅ | ✅ |
+...
 
 ## Recommendations
-- **Best for small teams:** ...
-- **Best for enterprise:** ...
-- **Best for developers:** ...
-- **Best value:** ...
+
+...
 
 ## Sources
-- [Official Site A](url)
-- [Review on G2](url)
-- [Comparison article](url)
+...
 ```
 
-### Step 5: Save & Share
+**中文报告模板：**
 
-Save the report to a standard location:
+```markdown
+# 竞品调研报告：[类别]
+
+**日期：** YYYY-MM-DD
+**范围：** [描述]
+
+---
+
+## 执行摘要
+[2-3 段概述]
+
+## 竞品概览
+
+| 竞品 | 核心差异化 | 价格 | 目标用户 |
+|------|-----------|------|---------|
+| 产品A | ... | ... | ... |
+
+## 深度分析
+
+### 产品A
+**功能：** ...
+**价格：** ...
+**优势：** ...
+**不足：** ...
+
+## 对比表格
+
+...
+
+## 建议方案
+
+...
+
+## 来源
+...
+```
+
+**小红书内容分析报告模板：**
+
+```markdown
+# 小红书内容分析报告：[话题/品类]
+
+**日期：** YYYY-MM-DD
+
+---
+
+## 热门内容概览
+
+| 笔记标题 | 类型 | 点赞 | 收藏 | 评论 | 博主类型 |
+|---------|------|------|------|------|---------|
+| ... | 图文 | 2.3w | 1.1w | 456 | KOL |
+
+## 内容趋势分析
+
+### 热门标题模式
+- 模式1：...
+- 模式2：...
+
+### 常见内容形式
+- 图文教程：...
+- 对比评测：...
+- 合集推荐：...
+
+### 热门话题标签
+- #标签1（xxx篇笔记）
+- #标签2（xxx篇笔记）
+
+## 竞品在小红书的布局
+
+### 品牌A
+- 官方账号：xx粉丝，xx笔记
+- 内容风格：...
+- 合作KOL：...
+
+### 品牌B
+- ...
+
+## 关键发现与建议
+
+1. ...
+2. ...
+
+## 来源
+- [小红书链接](url)
+- [知乎链接](url)
+```
+
+### Step 5: Save / 保存
+
+Save reports to / 保存到：
 
 ```
+# English reports
 ~/research/competitive/<category>/YYYY-MM-DD-<topic>.md
+
+# 中文报告
+~/research/红书研究/<品类>/YYYY-MM-DD-<话题>.md
+~/research/竞品调研/<品类>/YYYY-MM-DD-<主题>.md
 ```
 
-## Example Prompts
+---
 
-### Quick comparison
-```
-Compare Linear and Jira for project management. I want a features table, pricing comparison, and which is better for a 10-person startup.
-```
+## 示例 Prompt / Example Prompts
 
-### Deep dive
+### 🇨🇳 小红书内容研究
 ```
-I need a deep dive on Mintlify as a documentation platform. Cover: features, pricing tiers, reviews from G2, what users complain about, main alternatives.
+帮我分析小红书上『AI写作工具』的热门内容趋势。我需要知道：最火的笔记标题是什么、什么类型的笔记互动最高、大家都在讨论哪些功能点、有哪些博主在这个领域有影响力。用中文输出报告。
 ```
 
-### Market landscape
+### 🇨🇳 小红书竞品分析
 ```
-Research the MCP (Model Context Protocol) server ecosystem. What MCP servers exist? Compare 5 popular ones: features, setup complexity, use cases.
-```
-
-### Cron monitoring (recurring)
-```
-Set up a weekly cron job to monitor new competitor news about Windsurf and Cursor IDE.
+分析 Notion 和 我来(wolai) 在小红书上的内容策略差异。对比：笔记数量和频率、内容类型、互动情况、用户反馈。输出中文报告。
 ```
 
-## Common Pitfalls
+### 🇨🇳 小红书话题调研
+```
+研究小红书『效率工具』话题下，2026年最新的热门笔记趋势。提取前10篇高赞笔记的标题、封面风格、内容结构，总结爆款公式。
+```
 
-1. **Relying on one source.** Different sources tell different stories. Always cross-reference: official site claims vs user reviews vs analyst takes.
+### 🌐 English quick comparison
+```
+Compare Linear and Jira for project management. Features table, pricing, and which is better for a 10-person startup.
+```
 
-2. **Outdated pricing info.** SaaS pricing changes frequently. Check dates on review pages. When in doubt, visit the official pricing page.
+### 🌐 English deep dive
+```
+Deep dive on Mintlify as a documentation platform. Features, pricing tiers, reviews, user complaints, main alternatives.
+```
 
-3. **Confusing feature claims with actual capabilities.** A competitor might claim "AI-powered" but implement it minimally. Look for screenshots, demos, and user testimonials.
+### 🌐 Bilingual report
+```
+Research MCP (Model Context Protocol) server ecosystem. What MCP servers exist? Compare 5 popular ones. Output the report in both English and Chinese (side by side or alternating sections).
+```
 
-4. **Ignoring context.** A comparison table without context (team size, use case, budget) is misleading. Always note who the product is designed for.
+### 🔄 Cron monitoring
+```
+Set up a weekly cron job to monitor new competitor news about Windsurf and Cursor IDE. Also check 小红书 for any trending posts about them.
+```
 
-5. **Only looking at features.** Pricing, support quality, onboarding experience, ecosystem/integrations are equally important.
+---
 
-6. **Forgetting to save the report.** After gathering all data, actually write the report to a file — don't just display it in the chat.
+## Common Pitfalls / 常见问题
 
-## Verification Checklist
+| # | English | 中文 |
+|---|---------|------|
+| 1 | **Relying on one source.** Always cross-reference. | **只依赖单一来源。** 一定要交叉验证。 |
+| 2 | **Outdated pricing info.** Visit official pricing page. | **价格信息过时。** 以官网定价页为准。 |
+| 3 | **Confusing claims with reality.** Check reviews and screenshots. | **把宣传当事实。** 看用户真实评价。 |
+| 4 | **Ignoring context.** Always note team size, use case, budget. | **忽略上下文。** 注明团队规模、使用场景。 |
+| 5 | **Features only.** Pricing, support, ecosystem matter too. | **只看功能。** 价格、服务、生态同样重要。 |
+| 6 | **Forgetting to save.** Write the report to a file. | **忘记保存。** 一定要把报告存到文件里。 |
+| 7 | **小红书搜索局限。** 搜索内容有限，需要结合多个关键词反复搜索。 | **小红书 search limitations.** Multiple keyword searches needed. |
+| 8 | **忽略语言适配。** 英文报告不要生硬翻译成中文，反之亦然。 | **Language mismatch.** Adapt tone per language, don't machine-translate. |
 
-- [ ] Gathered data from 3+ sources per competitor
-- [ ] Official features confirmed against actual product screenshots/demos
-- [ ] Pricing verified on official pricing pages (not third-party estimates)
-- [ ] At least one user review source consulted (G2, Reddit, ProductHunt)
-- [ ] Report is comprehensive: features, pricing, pros/cons, recommendations
-- [ ] Sources are listed at the bottom of the report
-- [ ] Report saved to file (not just displayed)
-- [ ] Markdown formatting is clean and readable
+---
+
+## Verification Checklist / 验证清单
+
+- [ ] Gathered data from 3+ sources per competitor / 每个竞品至少 3 个信息源
+- [ ] For 小红书 research: searched multiple keywords / 小红书研究：多个关键词搜索
+- [ ] Pricing verified on official page / 价格已在官网核实
+- [ ] At least one user review source / 至少一个用户评价来源
+- [ ] Report language matches user's query / 报告语言与用户查询一致
+- [ ] Report saved to file / 报告已保存到文件
+- [ ] Sources listed / 来源已列出
